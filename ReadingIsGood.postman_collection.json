@@ -1,0 +1,233 @@
+{
+	"info": {
+		"_postman_id": "3947b5db-7284-4672-9aba-8224848dbacd",
+		"name": "ReadingIsGood",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Sign Up",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\":\"hcu4\",\r\n\"email\":\"hcu4@hcu.com\",\r\n\"password\": \"1234\",\r\n\"firstname\":\"Hamit Can\",\r\n\"lastname\":\"Uzunay\",\r\n\"role\":[\"user\", \"mod\"]}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/api/auth/signup",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sign In",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"hcu4\",\r\n    \"password\":\"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/api/auth/signin",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"auth",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Order to User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoY3U0IiwiaWF0IjoxNjA1NjMwNzEyLCJleHAiOjE2MDU3MTcxMTJ9.MdKnm5s3myzF-utMcKF7_MKs8oWJYwuLpeMoiwxEHdtFHwf0g4tjpQV4S-jeRNcbtzbQykjGWbwmeLgmxcnR7g",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"address\": \"Umraniye.Yeniyol\",\r\n    \"paymentMethod\": \"PAYATDOOR\",\r\n    \"orderItems\": [\r\n        {\r\n            \"book\":{\"id\":1},\r\n            \"qty\": 6\r\n        },\r\n        {\r\n            \"book\":{\"id\":2},\r\n            \"qty\": 4\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/api/v1/orders",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User Orders",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoY3U0IiwiaWF0IjoxNjA1NjMwNzEyLCJleHAiOjE2MDU3MTcxMTJ9.MdKnm5s3myzF-utMcKF7_MKs8oWJYwuLpeMoiwxEHdtFHwf0g4tjpQV4S-jeRNcbtzbQykjGWbwmeLgmxcnR7g"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8081/api/v1/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Book",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoY3U0IiwiaWF0IjoxNjA1Njg2MTExLCJleHAiOjE2MDU3NzI1MTF9.4yd06cEOAdsIhmfxSkAJ7C3FFSqgalgvfZ8CcyiRhz6E2q2euew929TGOdw9WhxsdCDY7jgiqTmHM67p1CNICQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"author\": \"Hamit Can Uzunay\",\r\n  \"coverUrl\": \"http://123.com/p.jpg\",\r\n  \"description\": \"The Great Book\",\r\n  \"name\": \"HCU Life Story\",\r\n  \"page\": 20,\r\n  \"price\": 40,\r\n  \"publisher\": \"HCU Yayınları\",\r\n  \"stock\": 450\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/api/v1/books",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Single Order Detail of User",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoY3U0IiwiaWF0IjoxNjA1NjMwNzEyLCJleHAiOjE2MDU3MTcxMTJ9.MdKnm5s3myzF-utMcKF7_MKs8oWJYwuLpeMoiwxEHdtFHwf0g4tjpQV4S-jeRNcbtzbQykjGWbwmeLgmxcnR7g",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8081/api/v1/orders/499",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"499"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Order Status",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoY3U0IiwiaWF0IjoxNjA1NjMwNzEyLCJleHAiOjE2MDU3MTcxMTJ9.MdKnm5s3myzF-utMcKF7_MKs8oWJYwuLpeMoiwxEHdtFHwf0g4tjpQV4S-jeRNcbtzbQykjGWbwmeLgmxcnR7g",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8081/api/v1/orders/499/status/SHIPPED",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"499",
+						"status",
+						"SHIPPED"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "",
+				"type": "string"
+			}
+		]
+	},
+	"protocolProfileBehavior": {}
+}
